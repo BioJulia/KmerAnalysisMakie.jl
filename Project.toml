@@ -1,7 +1,7 @@
 name = "KmerAnalysisMakie"
 uuid = "da464f59-a6cf-4c57-92f9-0556c3abcc34"
 authors = ["Ben J. Ward <benjward@protonmail.com>"]
-version = "0.1.0"
+version = "0.2.0"
 
 [deps]
 AbstractPlotting = "537997a7-5e4e-5d89-9595-2241ea00577e"
