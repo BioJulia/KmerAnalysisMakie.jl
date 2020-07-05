@@ -14,7 +14,7 @@ end
 function AbstractPlotting.plot!(plot::SpectraCN)
     # Lower to multiple barplots/plots here.
     spct = to_value(plot[:spectra])
-    heights = cumsum(KmerAnalysis._find_plottable_subset(spct); dims = 2)
+    heights = cumsum(_find_plottable_subset(spct); dims = 2)
     barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,7])], color = :orange)
     barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,6])], color = :yellow)
     barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,5])], color = :blue)
