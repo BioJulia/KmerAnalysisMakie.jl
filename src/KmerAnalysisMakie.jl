@@ -6,7 +6,7 @@ export
 using Observables
 using AbstractPlotting
 
-import KmerAnalysis: KmerFrequencySpectra, _find_plottable_subset
+import KmerAnalysis: KmerFrequencySpectra
 
 
 """
