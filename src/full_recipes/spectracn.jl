@@ -11,17 +11,15 @@ The spectracn plot consists of a set of differently coloured, stacked barplots.
     default_theme(scene, BarPlot)
 end
 
+const CN_COLOUR = [:black, :red, :purple, :green, :blue, :yellow, :orange]
+
 function AbstractPlotting.plot!(plot::SpectraCN)
     # Lower to multiple barplots/plots here.
     spct = to_value(plot[:spectra])
     heights = cumsum(_find_plottable_subset(spct); dims = 2)
-    barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,7])], color = :orange)
-    barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,6])], color = :yellow)
-    barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,5])], color = :blue)
-    barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,4])], color = :green)
-    barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,3])], color = :purple)
-    barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,2])], color = :red)
-    barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,1])], color = :black)
+    @inbounds for col in size[2]:-1:1
+        barplot!(plot, [Point2f0(i - 1, j) for (i, j) in enumerate(heights[:,col])], color = CN_COLOUR[col])
+    end
     # TODO: Figure out how to add a colour legend and perhaps axis labels.
     #xlabel!(plot, "K-mer multiplicity")
     #ylabel!(plot, "Number of distinct k-mers")
