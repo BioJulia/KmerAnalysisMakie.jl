@@ -10,7 +10,7 @@
 ## Description
 
 Provides Makie/AbstractPlotting recipes and visualisation functionalities for
-[KmerAnalysis.jl](https://biojulia.net/KmerAnalysis.jl/stable).
+[KmerAnalysis.jl](https://biojulia.dev/KmerAnalysis.jl/stable).
 
 
 ## Installation
